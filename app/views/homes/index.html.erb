@@ -1,4 +1,8 @@
-<p>
-  Modify me in `app/views/homes/index.html.erb` or change the root directive in
-  `config/routes.rb`
-</p>
+<h1> Renewable energy consumption - Residential Sector </h1>
+<h3>UNITS: Quadrillion Btu</h3>
+ <%@data["series"].each do|x|%>
+  <%x["data"].each do|m|%>
+  <li><%=m%></li>
+  <%end%>
+ <%end%>
+
