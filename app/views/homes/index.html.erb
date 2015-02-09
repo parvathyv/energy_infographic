@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    var dataarr = <%= raw @tsv.to_json %>
+    var dataarr = <%= raw @dataarr %>
 </script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.1/TweenMax.min.js"></script>
 
@@ -7,19 +7,41 @@
 <div class="row">
 
     <h1 class="renew lighter-color-header"> RENEWABLE </h1>
-    <h1 class="renew"> ENERGY CONSUMPTION</h1>
+    <h1 class="trnew"> ENERGY CONSUMPTION</h1>
     <%=image_tag("logo.png", class: "logo")%>
-    <br><br><br><br><br>
-    <h3>Residential Sector</h3>
+
+    <h3 class="renew">Residential Sector</h3>
     <h5>UNITS: Quadrillion Btu</h5>
-     <%@data["series"].each do|x|%>
-      <%x["data"].each do|m|%>
-      <li><%=m%></li>
-      <%end%>
-     <%end%>
+
 </div>
-</section>
+
 <script type="text/javascript">
-   TweenMax.to('.logo', 4, {left:700});
+  var tl = new TimelineLite();
+  tl.to('.logo', 0.5, {left:700})
+  .from('h1.renew', 0.5, {scale:0.75, autoalpha:0})
+  .from('h1.trnew', 0.75, {scale:0.75, autoalpha:0})
+
 </script>
 
+
+ <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable(dataarr);
+
+        var options = {
+          backgroundColor: 'rgb(230,70,0)',
+          title: 'Energy',
+          vAxis: {title: 'Year',  titleTextStyle: {color: 'red'}}
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+      }
+    </script>
+ <div id="chart_div" style="width: 900px; height: 500px;"></div>
+
+ </section>
