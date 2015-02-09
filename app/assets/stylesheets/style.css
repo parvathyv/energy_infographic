@@ -1,5 +1,7 @@
+
 .main-section{
 background-color: #D0290F;
+height:100%;
 }
 
 .renew{
@@ -10,6 +12,7 @@ background-color: #D0290F;
   line-height:30px;
   color:#5A0E02;
 }
+
 
 .lighter-color-header{
   color:#FA922A;
@@ -23,4 +26,11 @@ background-color: #D0290F;
 .logo{
 position:absolute;
 }
+
+.small-text{
+font-size:1em;
+color:#FA922A;
+}
+
+
 
