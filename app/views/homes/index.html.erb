@@ -1,8 +1,25 @@
-<h1> Renewable energy consumption - Residential Sector </h1>
-<h3>UNITS: Quadrillion Btu</h3>
- <%@data["series"].each do|x|%>
-  <%x["data"].each do|m|%>
-  <li><%=m%></li>
-  <%end%>
- <%end%>
+<script type="text/javascript">
+    var dataarr = <%= raw @tsv.to_json %>
+</script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.1/TweenMax.min.js"></script>
+
+<section class ="main-section">
+<div class="row">
+
+    <h1 class="renew lighter-color-header"> RENEWABLE </h1>
+    <h1 class="renew"> ENERGY CONSUMPTION</h1>
+    <%=image_tag("logo.png", class: "logo")%>
+    <br><br><br><br><br>
+    <h3>Residential Sector</h3>
+    <h5>UNITS: Quadrillion Btu</h5>
+     <%@data["series"].each do|x|%>
+      <%x["data"].each do|m|%>
+      <li><%=m%></li>
+      <%end%>
+     <%end%>
+</div>
+</section>
+<script type="text/javascript">
+   TweenMax.to('.logo', 4, {left:700});
+</script>
 
