@@ -1,7 +1,7 @@
 
-
 .main-section{
 background-color: #D0290F;
+height:100%;
 }
 
 .renew{
@@ -13,14 +13,6 @@ background-color: #D0290F;
   color:#5A0E02;
 }
 
-.trnew{
-  margin:10px;
-  background-color:transparent;
-  font-family:'Lato';
-  font-size:3em;
-  line-height:30px;
-  color:#5A0E02;
-}
 
 .lighter-color-header{
   color:#FA922A;
@@ -35,6 +27,10 @@ background-color: #D0290F;
 position:absolute;
 }
 
+.small-text{
+font-size:1em;
+color:#FA922A;
+}
 
 
 

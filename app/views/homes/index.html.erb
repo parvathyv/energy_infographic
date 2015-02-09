@@ -4,44 +4,56 @@
 <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.1/TweenMax.min.js"></script>
 
 <section class ="main-section">
-<div class="row">
+  <div class="row">
+    <div class="small-4 medium-6 large-8 columns">
+      <h1 class="renew lighter-color-header"> RENEWABLE </h1>
+      <h1 class="renew"> ENERGY CONSUMPTION</h1>
+      <%=image_tag("logo.png", class: "logo")%>
+      <h3 class="renew">Residential Sector</h3>
+      <h5 class="renew small-text">UNITS: Quadrillion Btu</h5>
+      <%@data["series"].each do|x|%>
+        <%x["data"].each do|m|%>
+         <% if m[1] > 0.04%>
+           <%=m%>
+           <%=image_tag("logo.png")%>
+         <%end%>
+        <%end%>
+       <%end%>
+    </div>
+  </div>
 
-    <h1 class="renew lighter-color-header"> RENEWABLE </h1>
-    <h1 class="trnew"> ENERGY CONSUMPTION</h1>
-    <%=image_tag("logo.png", class: "logo")%>
-
-    <h3 class="renew">Residential Sector</h3>
-    <h5>UNITS: Quadrillion Btu</h5>
-
-</div>
-
-<script type="text/javascript">
-  var tl = new TimelineLite();
-  tl.to('.logo', 0.5, {left:700})
-  .from('h1.renew', 0.5, {scale:0.75, autoalpha:0})
-  .from('h1.trnew', 0.75, {scale:0.75, autoalpha:0})
-
-</script>
+  <script type="text/javascript">
+    var tl = new TimelineLite();
+    tl.to('.logo', 0.5, {left:700})
+    //.to('h1.renew.lighter-color-header', 2, {bottom:250})
+    .from('h1.renew.lighter-color-header', 0.5, {scale:0.75, autoalpha:0})
+    .from('h1.renew', 1, {scale:0.75, autoalpha:0})
+  </script>
 
 
- <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript">
-      google.load("visualization", "1", {packages:["corechart"]});
-      google.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable(dataarr);
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script type="text/javascript">
+    google.load("visualization", "1", {packages:["corechart"]});
+    google.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable(dataarr);
 
-        var options = {
-          backgroundColor: 'rgb(230,70,0)',
-          title: 'Energy',
-          vAxis: {title: 'Year',  titleTextStyle: {color: 'red'}}
-        };
+      var options = {
+        backgroundColor: 'rgb(230,70,0)',
+        title: 'Energy',
+        vAxis: {title: 'Year',  titleTextStyle: {color: 'red'}}
+      };
 
-        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+      var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
 
-        chart.draw(data, options);
-      }
-    </script>
- <div id="chart_div" style="width: 900px; height: 500px;"></div>
+      chart.draw(data, options);
+    }
+  </script>
 
- </section>
+  <div class="row">
+    <div class="small-4 medium-6 large-10 large-offset-1 columns">
+      <div id="chart_div" style="width: 800px; height: 450px;"></div>
+    </div>
+  </div>
+
+</section>
