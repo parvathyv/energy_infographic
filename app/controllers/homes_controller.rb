@@ -6,7 +6,7 @@ class HomesController < ApplicationController
     @dataarr << ['Year', 'QA']
     color_array = ['silver','gold']
     @csv = {}
-    url = "http://api.eia.gov/series/?api_key=88DB1E7BBE358836CE91CFFCB0E0F082&series_id=STEO.SORCBUS.Q "
+    url = "http://api.eia.gov/series/?api_key=88DB1E7BBE358836CE91CFFCB0E0F082&series_id=STEO.SORCBUS.A"
     @data = JSON.parse(open(url).read)
     @data["series"].each do|arrayquar|
       arrayquar["data"].each do|info|
@@ -18,6 +18,7 @@ class HomesController < ApplicationController
     headers: ["Date","Quantity"]) do |csv|
       @csv.map do|key, value|
         csv << [key.split('Q').first.to_i, value]
+
         @dataarr << [key.split('Q').first.to_i, value.to_f]
       end
     end
