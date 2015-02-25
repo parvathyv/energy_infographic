@@ -1,0 +1,26 @@
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.1/TweenMax.min.js"></script>
+
+<section class ="main-section bottle-section">
+
+  <% 15.times do%>
+    <%=image_tag("bottlesmall.png", class: "bottle-img")%>
+    <%=image_tag("bottlemed.png", class: "bottle-img")%>
+  <%end%>
+  <div class="row">
+    <div class="small-4 medium-6 large-12 columns">
+      <h1 class="lighter-color-header-bottle"> THE GREAT </h1>
+      <h1 class="bottle-font">  PACIFIC GARBAGE PATCH</h1>
+    </div>
+  </div>
+
+
+  <script type="text/javascript">
+    var tl = new TimelineLite();
+    tl.to('.bottle-img', 2, {right:"5%", ease:Bounce.easeOut, delay:1})
+    .from('h1.lighter-color-header-bottle', 0.5, {scale:0.75, opacity:0})
+    .from('h1.bottle-font', 0.5, {scale:0.75, opacity:0});
+
+  </script>
+
+</section>

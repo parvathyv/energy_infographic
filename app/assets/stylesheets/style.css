@@ -4,6 +4,16 @@ background-color: #D0290F;
 height:100%;
 }
 
+.bottle-section{
+  background-color: #0d0d5e;
+}
+
+.bottle-font{
+  color:white;
+  font-family:'Lato';
+   font-size:3em;
+}
+
 .renew{
   margin:10px;
   background-color:transparent;
@@ -19,12 +29,23 @@ height:100%;
   font-size:3em;
 }
 
+.lighter-color-header-bottle{
+  font-family:'Lato';
+  color:white;
+  font-size:3em;
+}
+
 .top-bar{
   background-color:rgb(230, 70, 30);
 }
 
 .logo{
 position:absolute;
+}
+
+.bottle-img{
+position:relative;
+
 }
 
 .small-text{
