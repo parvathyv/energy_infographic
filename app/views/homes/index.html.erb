@@ -11,14 +11,7 @@
       <%=image_tag("logo.png", class: "logo")%>
       <h3 class="renew">Residential Sector</h3>
       <h5 class="renew small-text">UNITS: Quadrillion Btu</h5>
-      <%@data["series"].each do|x|%>
-        <%x["data"].each do|m|%>
-         <% if m[1] > 0.04%>
-           <%=m%>
-           <%=image_tag("logo.png")%>
-         <%end%>
-        <%end%>
-       <%end%>
+
     </div>
   </div>
 
@@ -55,5 +48,89 @@
       <div id="chart_div" style="width: 800px; height: 450px;"></div>
     </div>
   </div>
+   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+
+    <script type="text/javascript">
+    (function(){
+var app = angular.module('store',[ ]);
+app.controller('StoreController', function(){
+  this.product = gem;
+});
+
+var gem = {
+  name: 'Dodecahedron',
+  price: 2.95,
+  descripton: 'kjasdjsahd',
+}
+
+})();
+</script>
+    <div ng-app>
+      <div class="row">
+        <div class="small-8 medium-10 large-8 large-offset-2 columns">
+
+          <input type="text" ng-model="sometext"/>
+
+          <h1 ng-show="sometext">Hello {{ "sometext" }}</h1>
+        </div>
+      </div>
+       </div>
+
+    <div ng-controller="StoreController as store">
+      <h1>${{store.product.price}}</h1>
+    </div>
+
+
+
+     <div class="row">
+  <div class="large-12 columns">
+    <h2>Masonry &amp; Foundation 5</h2>
+    <hr />
+  </div>
+    </div>
+
+    <div class="row">
+    <div id="container" class="large-12 columns transitions-enabled large-centered clearfix">
+                <div class="box col2"><img src="http://www.placehold.it/225x140" /></div>
+                <div class="box col2"><img src="http://www.placehold.it/210x160" /></div>
+                <div class="box col2"><img src="http://www.placehold.it/310x280" /></div>
+                <div class="box col2"><img src="http://www.placehold.it/200x115" /></div>
+                <div class="box col2"><img src="http://www.placehold.it/200x150" /></div>
+                <div class="box col2"><img src="http://www.placehold.it/200x130" /></div>
+                <div class="box col2"><img src="http://www.placehold.it/200x350" /></div>
+                <div class="box col2"><img src="http://www.placehold.it/200x130" /></div>
+                <div class="box col2"><img src="http://www.placehold.it/200x130" /></div>
+                <div class="box col2"><img src="http://www.placehold.it/200x170" /></div>
+                <div class="box col2"><img src="http://www.placehold.it/200x140" /></div>
+                <div class="box col2"><img src="http://www.placehold.it/200x110" /></div>
+                <div class="box col2"><img src="http://www.placehold.it/200x300" /></div>
+                <div class="box col2"><img src="http://www.placehold.it/200x130" /></div>
+                <div class="box col2"><img src="http://www.placehold.it/200x180" /></div>
+                <div class="box col2"><img src="http://www.placehold.it/300x140" /></div>
+                <div class="box col2"><img src="http://www.placehold.it/260x180" /></div>
+                <div class="box col2"><img src="http://www.placehold.it/200x135" /></div>
+                <div class="box col2"><img src="http://www.placehold.it/240x110" /></div>
+                <div class="box col2"><img src="http://www.placehold.it/200x180" /></div>
+                <div class="box col2"><img src="http://www.placehold.it/200x150" /></div>
+    <div class="box col2"><img src="http://www.placehold.it/200x120" /></div>
+  </div><!--/container -->
+    </div>
+
+
+
+
+
+
+<%= javascript_include_tag 'jquery.masonary' %>
+<script>
+    var $container = $('#container');
+    $container.imagesLoaded( function(){
+        $container.masonry({
+          itemSelector: '.box',
+          isAnimated: !Modernizr.csstransitions,
+          isFitWidth: true
+     });
+});
+</script>
 
 </section>
